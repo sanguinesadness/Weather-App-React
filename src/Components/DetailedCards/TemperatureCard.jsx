@@ -1,15 +1,18 @@
 import React from 'react'
 import { FiSunrise, FiSun, FiSunset, FiMoon } from 'react-icons/fi'
+import MediaQuery, { useMediaQuery } from 'react-responsive'
 
 const TemperatureTable = ({temp, feels_like}) => {
+    const mobileScreen = useMediaQuery({ maxWidth: 630 });
+
     return (
         <div className="temperature-info card">
             <table className="temperature-table">
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Temp, °C</th>
-                        <th>Feels like, °C</th>
+                        <th>Temp{mobileScreen ? "" : ", °C"}</th>
+                        <th>Feel{mobileScreen ? "" : "s like, °C"}</th>
                     </tr>
                 </thead>
                 <tbody>

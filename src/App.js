@@ -5,6 +5,8 @@ import CitySelector from './Components/CitySelector';
 import ThemeSelector from './Components/ThemeSelector';
 import WeatherCards from './Components/WeatherCards';
 import DetailedInfo from './Components/DetailedInfo';
+import SelectedCityDateLabel from './Components/SelectedCityDateLabel';
+import MediaQuery from 'react-responsive';
 import { useState } from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { VscArrowLeft } from 'react-icons/vsc'
@@ -30,53 +32,57 @@ function App() {
 
     return (
         <Router>
-            <div className={`container ${appTheme}`}>
-                <Header monthNames={monthNames}/>
-                <div className="content">
-                    <Route path="/" exact render={() => (
-                        <div>
-                            <div className="content-header">
-                                <CitySelector selectedCity={selectedCity} 
-                                              setSelectedCity={setSelectedCity} 
-                                              setFetchData={setFetchData}/>
-                                <ThemeSelector appThemes={appThemes} appTheme={appTheme} setAppTheme={setAppTheme} />
-                            </div>
-                            <div className="content-body">
-                                <WeatherCards key={selectedCity ? selectedCity.id : 0} apiKey={apiKey} amount={10} 
-                                              cityId={selectedCity ? selectedCity.id : 0} monthNames={monthNames}
-                                              setSelectedCard={setSelectedCard} 
-                                              fetchData={fetchData} currentForecast={selectedCard.allInfo}/>
-                            </div>
+            <div className={`main-wrapper ${appTheme}`}>
+                <div className="container__wrapper">
+                    <div className="container">
+                        <Header monthNames={monthNames}/>
+                        <div className="content">
+                            <Route path="/" exact render={() => (
+                                <div>
+                                    <div className="content-header">
+                                        <CitySelector selectedCity={selectedCity} 
+                                                    setSelectedCity={setSelectedCity} 
+                                                    setFetchData={setFetchData}/>
+                                        <ThemeSelector appThemes={appThemes} appTheme={appTheme} setAppTheme={setAppTheme} />
+                                    </div>
+                                    <div className="content-body">
+                                        <WeatherCards key={selectedCity ? selectedCity.id : 0} apiKey={apiKey} amount={10} 
+                                                    cityId={selectedCity ? selectedCity.id : 0} monthNames={monthNames}
+                                                    setSelectedCard={setSelectedCard} 
+                                                    fetchData={fetchData} currentForecast={selectedCard.allInfo}/>
+                                    </div>
+                                </div>
+                            )} />
+                            <Route path="/detailed" render={() => (
+                                <div>
+                                    <div className="content-header">
+                                        <Link className="button with-icon" to="/" onClick={() => setFetchData(false)}>
+                                            <VscArrowLeft/>
+                                            <span>Home</span>
+                                        </Link>
+                                        <MediaQuery minWidth={1201}>
+                                            <>{   
+                                                selectedCard && selectedCity &&
+                                                <SelectedCityDateLabel cityName={selectedCity.name} date={selectedCard.date}/>
+                                            }</>
+                                        </MediaQuery>
+                                        <ThemeSelector appThemes={appThemes} appTheme={appTheme} setAppTheme={setAppTheme} />
+                                    </div>
+                                    <div className="content-body">
+                                    <MediaQuery maxWidth={1200}>
+                                        <>{
+                                            selectedCard && selectedCity &&
+                                            <SelectedCityDateLabel cityName={selectedCity.name} date={selectedCard.date} />
+                                        }</>
+                                    </MediaQuery>
+                                        <DetailedInfo forecast={selectedCard.forecast} city={selectedCity} />
+                                    </div>
+                                </div>
+                            )} />
                         </div>
-                    )} />
-                    <Route path="/detailed" render={() => (
-                        <div>
-                            <div className="content-header">
-                                <Link className="button with-icon" to="/" onClick={() => setFetchData(false)}>
-                                    <VscArrowLeft/>
-                                    <span>Home</span>
-                                </Link>
-                                {
-                                    selectedCard && selectedCity &&
-                                    <h4 className="selected-city-date">
-                                        <span className="city-name">
-                                            {selectedCity ? selectedCity.name : "No city selected"}
-                                        </span>
-                                        <span className="separator"> — </span>
-                                        <span className="date">
-                                            {selectedCard.date ? `${selectedCard.date.month} ${selectedCard.date.day}, ${selectedCard.date.year}` : "No card selected"}
-                                        </span>
-                                    </h4>
-                                }
-                                <ThemeSelector appThemes={appThemes} appTheme={appTheme} setAppTheme={setAppTheme} />
-                            </div>
-                            <div className="content-body">
-                                <DetailedInfo setFetchData={setFetchData} city={selectedCity} forecast={selectedCard.forecast}/>
-                            </div>
-                        </div>
-                    )} />
+                        <Footer/>
+                    </div>
                 </div>
-                <Footer/>
             </div>
         </Router>
     );
