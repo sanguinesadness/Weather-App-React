@@ -988,6 +988,32 @@ table th {
       justify-self: center;
 }
 
+.detailed-info__wrapper .detailed-info .one-element-row {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: column;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  padding: 40px 0;
+  -webkit-column-gap: 40px;
+          column-gap: 40px;
+  overflow-x: scroll;
+}
+
+.detailed-info__wrapper .detailed-info .one-element-row::-webkit-scrollbar {
+  display: none;
+}
+
+.detailed-info__wrapper .detailed-info .one-element-row .temperature-info {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.detailed-info__wrapper .detailed-info .one-element-row .temperature-info table th, .detailed-info__wrapper .detailed-info .one-element-row .temperature-info table td {
+  white-space: nowrap;
+}
+
 .temperature::after {
   content: " °C";
 }
@@ -1069,6 +1095,9 @@ table th {
 @media (max-height: 820px) {
   .container .content .content-body {
     height: 430px;
+  }
+  .detailed-info__wrapper .detailed-info {
+    padding: 0;
   }
   .weather-cards__wrapper .weather-cards {
     overflow-x: scroll;

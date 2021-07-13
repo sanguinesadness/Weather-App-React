@@ -10,6 +10,7 @@ import MediaQuery from 'react-responsive';
 import { useState } from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { VscArrowLeft } from 'react-icons/vsc'
+import settings from '../package.json'
 
 function App() {
     // OpenWeather API key
@@ -22,6 +23,8 @@ function App() {
         light: "light-theme",
         dark: "dark-theme"
     });
+
+    const appGitName = settings['git-name'];
 
     const [selectedCity, setSelectedCity] = useState();
     const [appTheme, setAppTheme] = useState(appThemes.light);
@@ -37,7 +40,7 @@ function App() {
                     <div className="container">
                         <Header monthNames={monthNames}/>
                         <div className="content">
-                            <Route path="/" exact render={() => (
+                            <Route path={`/${appGitName}`} exact render={() => (
                                 <div>
                                     <div className="content-header">
                                         <CitySelector selectedCity={selectedCity} 
@@ -53,10 +56,10 @@ function App() {
                                     </div>
                                 </div>
                             )} />
-                            <Route path="/detailed" render={() => (
+                            <Route path={`/${appGitName}/detailed`} render={() => (
                                 <div>
                                     <div className="content-header">
-                                        <Link className="button with-icon" to="/" onClick={() => setFetchData(false)}>
+                                        <Link className="button with-icon" to={`/${appGitName}`} onClick={() => setFetchData(false)}>
                                             <VscArrowLeft/>
                                             <span>Home</span>
                                         </Link>

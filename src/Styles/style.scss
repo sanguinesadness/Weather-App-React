@@ -762,6 +762,26 @@ table {
                 justify-self: center;
             }
         }
+
+        .one-element-row {
+            display: grid;
+            grid-auto-flow: column;
+            justify-self: center;
+            padding: 40px 0;
+            column-gap: 40px;
+
+            @include hidden-scroll-x();
+
+            .temperature-info {
+                width: max-content;
+
+                table {
+                    th, td {
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -823,6 +843,10 @@ table {
 @media (max-height: 820px) {
     .container .content .content-body {
         height: 430px;
+    }
+
+    .detailed-info__wrapper .detailed-info {
+        padding: 0;
     }
 
     .weather-cards__wrapper .weather-cards {

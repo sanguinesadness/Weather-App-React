@@ -10,7 +10,8 @@ import { BsFillInfoSquareFill } from 'react-icons/bs'
 import MediaQuery, { useMediaQuery } from 'react-responsive'
 
 const DetailedInfo = ({ forecast, city }) => {
-    const bigScreen = useMediaQuery({ minWidth: 980 });
+    const lowHeight = useMediaQuery({ maxHeight: 820 });
+    const wideScreen = useMediaQuery({ minWidth: 980 });
     const mediumScreen = useMediaQuery({ minWidth: 891, maxWidth: 979 });
     const smallScreen = useMediaQuery({ maxWidth: 890 });
 
@@ -20,7 +21,20 @@ const DetailedInfo = ({ forecast, city }) => {
                 forecast && city ?
                 <div className="detailed-info">
                     {
-                        bigScreen ?
+                        lowHeight && wideScreen ?
+                        <>
+                            <div className="one-element-row">
+                                <BriefInfoCard iconId={forecast.weather[0].icon}
+                                    temperature={Math.round(parseInt(forecast.temp.max))}
+                                    description={forecast.weather[0].description} />
+                                <TemperatureCard temp={forecast.temp} feels_like={forecast.feels_like} />
+                                <AirCard humidity={forecast.humidity} pressure={forecast.pressure} />
+                                <LocationCard longitude={city.coord.lon} latitude={city.coord.lat} />
+                                <WindCard speed={forecast.speed} direction={forecast.deg} gust={forecast.gust} />
+                                <OtherCard clouds={forecast.clouds} precipitation={forecast.pop} />
+                            </div>
+                        </>
+                        : wideScreen ?
                         <>
                             <div className="first row">
                                 <BriefInfoCard iconId={forecast.weather[0].icon}
@@ -63,6 +77,19 @@ const DetailedInfo = ({ forecast, city }) => {
                             <WindCard speed={forecast.speed} direction={forecast.deg} gust={forecast.gust} />
                             <OtherCard clouds={forecast.clouds} precipitation={forecast.pop} />
                         </div>
+                        : lowHeight ?
+                        <>
+                            <div className="one-element-row">
+                                <BriefInfoCard iconId={forecast.weather[0].icon}
+                                    temperature={Math.round(parseInt(forecast.temp.max))}
+                                    description={forecast.weather[0].description} />
+                                <TemperatureCard temp={forecast.temp} feels_like={forecast.feels_like} />
+                                <AirCard humidity={forecast.humidity} pressure={forecast.pressure} />
+                                <LocationCard longitude={city.coord.lon} latitude={city.coord.lat} />
+                                <WindCard speed={forecast.speed} direction={forecast.deg} gust={forecast.gust} />
+                                <OtherCard clouds={forecast.clouds} precipitation={forecast.pop} />
+                            </div>
+                        </>
                         :
                         <p>Unknown display size</p>
                     }

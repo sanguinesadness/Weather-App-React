@@ -23,7 +23,7 @@ const WeatherCards = ({apiKey, cityId, amount, monthNames, setSelectedCard, fetc
 
     // get Forecast from OpenWeatherMap API
     async function fetchForecast() {
-        const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast/daily?id=${cityId}&units=metric&cnt=${amount}&appid=${apiKey}`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast/daily?id=${cityId}&units=metric&cnt=${amount}&appid=${apiKey}`);
         return response.json();
     }
 
