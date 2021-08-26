@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/Weather-App-React/static/css/main.a104cf98.chunk.css",
-    "main.js": "/Weather-App-React/static/js/main.ca5c69ec.chunk.js",
-    "main.js.map": "/Weather-App-React/static/js/main.ca5c69ec.chunk.js.map",
+    "main.css": "/Weather-App-React/static/css/main.ce10dc8b.chunk.css",
+    "main.js": "/Weather-App-React/static/js/main.53c4c3d9.chunk.js",
+    "main.js.map": "/Weather-App-React/static/js/main.53c4c3d9.chunk.js.map",
     "runtime-main.js": "/Weather-App-React/static/js/runtime-main.37c0d237.js",
     "runtime-main.js.map": "/Weather-App-React/static/js/runtime-main.37c0d237.js.map",
-    "static/js/2.b2e6bc72.chunk.js": "/Weather-App-React/static/js/2.b2e6bc72.chunk.js",
-    "static/js/2.b2e6bc72.chunk.js.map": "/Weather-App-React/static/js/2.b2e6bc72.chunk.js.map",
+    "static/js/2.3e5df9bf.chunk.js": "/Weather-App-React/static/js/2.3e5df9bf.chunk.js",
+    "static/js/2.3e5df9bf.chunk.js.map": "/Weather-App-React/static/js/2.3e5df9bf.chunk.js.map",
     "static/js/3.b9730fa6.chunk.js": "/Weather-App-React/static/js/3.b9730fa6.chunk.js",
     "static/js/3.b9730fa6.chunk.js.map": "/Weather-App-React/static/js/3.b9730fa6.chunk.js.map",
     "index.html": "/Weather-App-React/index.html",
-    "static/css/main.a104cf98.chunk.css.map": "/Weather-App-React/static/css/main.a104cf98.chunk.css.map",
-    "static/js/2.b2e6bc72.chunk.js.LICENSE.txt": "/Weather-App-React/static/js/2.b2e6bc72.chunk.js.LICENSE.txt",
-    "static/media/style.css": "/Weather-App-React/static/media/link-arrow-dark.cfa6a439.svg",
-    "static/media/test.28b7da0c.svg": "/Weather-App-React/static/media/test.28b7da0c.svg"
+    "static/css/main.ce10dc8b.chunk.css.map": "/Weather-App-React/static/css/main.ce10dc8b.chunk.css.map",
+    "static/js/2.3e5df9bf.chunk.js.LICENSE.txt": "/Weather-App-React/static/js/2.3e5df9bf.chunk.js.LICENSE.txt",
+    "static/media/style.css": "/Weather-App-React/static/media/link-arrow-dark.7a20d2ed.svg",
+    "static/media/test.12f45a7b.svg": "/Weather-App-React/static/media/test.12f45a7b.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.37c0d237.js",
-    "static/js/2.b2e6bc72.chunk.js",
-    "static/css/main.a104cf98.chunk.css",
-    "static/js/main.ca5c69ec.chunk.js"
+    "static/js/2.3e5df9bf.chunk.js",
+    "static/css/main.ce10dc8b.chunk.css",
+    "static/js/main.53c4c3d9.chunk.js"
   ]
 }
