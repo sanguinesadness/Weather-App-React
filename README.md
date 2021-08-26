@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Weather-App-React
+A web application that allows you to view a detailed 10-day weather forecast for any city in the world.
+## :desktop_computer: FullHD View
+### :full_moon: Light
+![home_light](https://user-images.githubusercontent.com/59533126/130974129-da7e5922-9d0d-4b47-9725-6d8aba4ecc01.png)
+![info_light](https://user-images.githubusercontent.com/59533126/130974136-12c25408-90f2-427c-81ac-34cf6fc9f9db.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### :new_moon: Dark
+![home_dark](https://user-images.githubusercontent.com/59533126/130974097-18147aa7-837a-4a0e-ac4e-6c9e5c349987.png)
+![info_dark](https://user-images.githubusercontent.com/59533126/130974226-396236cf-b248-4688-9cde-87bd9b719567.png)
 
-## Available Scripts
+## :computer: MacBook View
+### :full_moon: Light
+![home_light](https://user-images.githubusercontent.com/59533126/130974928-61e1cdcf-9eaa-4bfa-8efa-448dcb127017.png)
+![info_light](https://user-images.githubusercontent.com/59533126/130974936-5fa86b47-d527-4992-955c-2a2db2b7d0ae.png)
 
-In the project directory, you can run:
+### :new_moon: Dark
+![home_dark](https://user-images.githubusercontent.com/59533126/130974958-f465f529-ae44-4ec6-9d18-ff2a53e7398a.png)
+![info_dark](https://user-images.githubusercontent.com/59533126/130974965-bc17af8a-09b6-4b78-8952-0fb26bf14269.png)
 
-### `npm start`
+## :iphone: iPhone 11/XR View
+### :full_moon: Light
+![home_light](https://user-images.githubusercontent.com/59533126/130977503-facaefce-e785-4533-9312-4d9a760284f4.png)
+![info_light](https://user-images.githubusercontent.com/59533126/130977508-99798cb6-0ab4-4f35-90fd-adc40343f928.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### :new_moon: Dark
+![home_dark](https://user-images.githubusercontent.com/59533126/130977603-af559792-1b80-434c-86ec-fe75e0287304.png)
+![info_dark](https://user-images.githubusercontent.com/59533126/130977606-825fc5cb-0202-44cc-b0ac-698172bc7c8b.png)
