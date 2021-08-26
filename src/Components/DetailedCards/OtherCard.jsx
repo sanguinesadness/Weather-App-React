@@ -2,7 +2,7 @@ import React from 'react'
 
 const OtherCard = ({ clouds, precipitation }) => {
     return (
-        <div className="other-info card">
+        <div className="other-info card no-hover">
             <span className="card-title">Other</span>
             <table className="without-border">
                 <tbody>

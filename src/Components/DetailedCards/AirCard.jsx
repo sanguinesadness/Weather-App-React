@@ -2,7 +2,7 @@ import React from 'react'
 
 const AirCard = ({ humidity, pressure }) => {
     return (
-        <div className="air-info card">
+        <div className="air-info card no-hover">
             <span className="card-title">Air</span>
             <table className="without-border">
                 <tbody>

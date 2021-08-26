@@ -2,7 +2,7 @@ import React from 'react'
 
 const BriefInfo = ({iconId, temperature, description}) => {
     return (
-        <div className="brief-info card">
+        <div className="brief-info card no-hover">
             <img className="icon" src={`http://openweathermap.org/img/wn/${iconId}@4x.png`}></img>
             <span className="info">
                 <span className="temp-block">

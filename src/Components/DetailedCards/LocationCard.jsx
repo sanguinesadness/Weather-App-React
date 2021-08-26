@@ -2,7 +2,7 @@ import React from 'react'
 
 const LocationCard = ({ longitude, latitude }) => {
     return (
-        <div className="location-info card">
+        <div className="location-info card no-hover">
             <span className="card-title">Location</span>
             <table className="without-border">
                 <tbody>

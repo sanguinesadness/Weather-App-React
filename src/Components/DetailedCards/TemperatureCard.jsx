@@ -6,7 +6,7 @@ const TemperatureTable = ({temp, feels_like}) => {
     const mobileScreen = useMediaQuery({ maxWidth: 630 });
 
     return (
-        <div className="temperature-info card">
+        <div className="temperature-info card no-hover">
             <table className="temperature-table">
                 <thead>
                     <tr>

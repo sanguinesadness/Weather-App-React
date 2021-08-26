@@ -2,7 +2,7 @@ import React from 'react'
 
 const WindCard = ({ speed, direction, gust }) => {
     return (
-        <div className="wind-info card">
+        <div className="wind-info card no-hover">
             <span className="card-title">Wind</span>
             <table className="without-border">
                 <tbody>

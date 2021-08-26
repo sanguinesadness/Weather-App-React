@@ -39,6 +39,30 @@ $red: #E24646;
     }
 }
 
+@mixin gray-scrollbar($axis: "y") {
+    @if $axis == "y" {
+        overflow-y: scroll;
+    }
+    @else {
+        overflow-x: scroll;
+    }
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        padding: 5px;
+        background: transparent;
+        border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba(221, 221, 221, 0.9); 
+        border-radius: 3px;
+    }
+}
+
 @mixin text-ellipsis() {
     text-overflow: ellipsis;
     overflow: hidden;
@@ -77,25 +101,41 @@ $red: #E24646;
         .selector {
             background: white;
             box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.15);
+            
+            .city-list__wrapper {
+                @include gray-scrollbar("y");
 
-            .city-list__wrapper .city-list .city:hover {
-                background: $light-gray;
+                .city-list .city:hover {
+                    background: $light-gray;
+                }
             }
         }
     }
 
     .card {
+        $init-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), 6px 6px 0 $light-gray;
+        $hover-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), 3px 3px 0 $light-gray;
+
         background: white;
-        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), 6px 6px 0 $light-gray;
+        box-shadow: $init-shadow;
         border: 1px solid #EEEEEE;
         color: $dark-blue;
     
         &:hover {
-            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), 3px 3px 0 $light-gray;
+            box-shadow: $hover-shadow;
+        }
+
+        &.no-hover {
+            box-shadow: $init-shadow;
         }
     }
 
     input[type="radio"]:checked {
+        color: white;
+        background: $dark-blue;
+    }
+
+    .radio-input .radio-option.checked {
         color: white;
         background: $dark-blue;
     }
@@ -164,18 +204,29 @@ $red: #E24646;
     
     .card {
         $shadow-color: #222638;
+        $init-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), 6px 6px 0 $shadow-color;
+        $hover-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), 3px 3px 0 $shadow-color;
 
         border: none;
         background: $dark-blue-lighter;
-        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), 6px 6px 0 $shadow-color;
+        box-shadow: $init-shadow;
         color: white;
 
         &:hover {
-            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), 3px 3px 0 $shadow-color;
+            box-shadow: $hover-shadow;
+        }
+
+        &.no-hover {
+            box-shadow: $init-shadow;
         }
     }
 
     input[type="radio"]:checked {
+        color: $dark-blue;
+        background: white;
+    }
+
+    .radio-input .radio-option.checked {
         color: $dark-blue;
         background: white;
     }
@@ -337,7 +388,6 @@ input[type="text"] {
 }
 
 input[type="radio"] {
-    position: relative;
     cursor: pointer;
     border-radius: 7px;
     transition: 200ms ease all;
@@ -349,8 +399,40 @@ input[type="radio"] {
     }
 
     &::before {
+        text-align: center;
         padding: 0 5px;
         content: attr(value);
+        display: block;
+    }
+}
+
+.radio-input {
+    @include flex-space-between();
+
+    .label {
+        margin-right: 30px;
+    }
+
+    .radio-options {
+        @include flex-centered(row);
+
+        .radio-option {
+            cursor: pointer;
+            text-align: center;
+            border-radius: 7px;
+            transition: 200ms ease all;
+            padding: 3px 15px;
+            margin-right: 5px;
+
+            &:nth-last-child(1) {
+                margin-right: 0;
+            }
+
+            &.checked {
+                background-color: $dark-blue;
+                color: white;
+            }
+        }
     }
 }
 
@@ -512,6 +594,7 @@ table {
         background: white;
         top: 40px;
         font-size: 0.9em;
+        overflow: hidden;
         
         input {
             width: 100%;
@@ -520,7 +603,6 @@ table {
 
         .city-list__wrapper {
             max-height: 396px;
-            overflow-y: scroll;
 
             .city-list {
                 display: flex;
@@ -552,20 +634,6 @@ table {
                 }
             }
         }
-    }
-}
-
-.theme-selector {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    span {
-        margin-right: 30px;
-    }
-
-    input {
-        margin-left: 5px;
     }
 }
 
@@ -770,7 +838,7 @@ table {
             padding: 40px 0;
             column-gap: 40px;
 
-            @include hidden-scroll-x();
+            @include gray-scrollbar("x");
 
             .temperature-info {
                 width: max-content;
@@ -790,8 +858,11 @@ table {
 }
 
 .card {
+    $init-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), 6px 6px 0 $light-gray;
+    $hover-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), 3px 3px 0 $light-gray;
+
     background: white;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), 6px 6px 0 $light-gray;
+    box-shadow: $init-shadow;
     border-radius: 10px;
     border: 1px solid #EEEEEE;
     overflow: hidden;
@@ -805,8 +876,13 @@ table {
     transition: 150ms ease all;
 
     &:hover {
-        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), 3px 3px 0 $light-gray;
+        box-shadow: $hover-shadow;
         transform: translate(3px, 3px);
+    }
+
+    &.no-hover:hover {
+        box-shadow: $init-shadow;
+        transform: unset;
     }
 
     .card-title {
@@ -850,7 +926,7 @@ table {
     }
 
     .weather-cards__wrapper .weather-cards {
-        @include hidden-scroll-x();
+        @include gray-scrollbar("x");
         column-gap: 50px;
         row-gap: 40px;
 
@@ -905,6 +981,10 @@ table {
 }
 
 @media (max-width: 1440px), (max-height: 860px) {
+    body {
+        overflow: initial;
+    }
+
     .main-wrapper {
         align-items: flex-start;
 
@@ -1050,7 +1130,7 @@ table {
         height: 100%;
 
         .container {
-            overflow-y: scroll;
+            @include gray-scrollbar("y");
 
             .content .content-body {
                 height: 450px;
@@ -1074,6 +1154,7 @@ table {
             column-gap: 50px;
     
             .weather-card {
+                flex-direction: column;
                 width: 130px;
                 height: 150px;
     
@@ -1340,7 +1421,7 @@ table {
 }
 
 @media (max-width: 790px) {
-    .theme-selector > span {
+    .theme-selector .radio-input .label {
         display: none;
     }
     
@@ -1373,6 +1454,10 @@ table {
 @media (max-width: 690px) {
     .city-selector {
         max-width: 300px;
+        
+        .selector {
+            max-height: 400px;
+        }
     }
 
     .container__wrapper .container {
@@ -1526,10 +1611,14 @@ table {
     
             .theme-selector {
                 margin-bottom: 20px;
-                flex-direction: column;
 
-                input[type="radio"] {
-                    padding: 5px 20px;
+                .radio-input .radio-options {
+                    flex-direction: column;
+
+                    .radio-option {
+                        margin: 0;
+                        padding: 5px 20px;
+                    }
                 }
             }
 
